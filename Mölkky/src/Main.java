@@ -4,6 +4,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JLabel;
 import javax.swing.JButton;
+import java.awt.Component;
+import javax.swing.Box;
+import javax.swing.JInternalFrame;
 
 public class Main extends JFrame{
 	
@@ -23,27 +26,27 @@ public class Main extends JFrame{
 		setLocationRelativeTo(null);
 		
 		startButton = new JButton("Start game");
-		startButton.setBounds(160, 110, 140, 60);
+		startButton.setBounds(175, 110, 140, 60);
 		getContentPane().add(startButton);
 		
-		JLabel welcomeLabel = new JLabel("Welcome");
-		welcomeLabel.setBounds(209, 44, 117, 60);
+		JLabel welcomeLabel = new JLabel("\tWelcome");
+		welcomeLabel.setBounds(207, 42, 140, 60);
 		getContentPane().add(welcomeLabel);
 		
 		editDbButton = new JButton("Edit database");
-		editDbButton.setBounds(160, 176, 140, 60);
+		editDbButton.setBounds(175, 180, 140, 60);
 		getContentPane().add(editDbButton);
 		
 		quitButton = new JButton("Quit");
-		quitButton.setBounds(160, 318, 140, 60);
+		quitButton.setBounds(175, 320, 140, 60);
 		getContentPane().add(quitButton);
 		
 		rulesButton = new JButton("Rules");
-		rulesButton.setBounds(160, 247, 140, 60);
+		rulesButton.setBounds(175, 250, 140, 60);
 		getContentPane().add(rulesButton);
 		
 		labelSay = new JLabel();
-		labelSay.setBounds(160, 395, 140, 40);
+		labelSay.setBounds(175, 390, 140, 40);
 		getContentPane().add(labelSay);
 			
 		MyEventHandler commandHandler = new MyEventHandler();

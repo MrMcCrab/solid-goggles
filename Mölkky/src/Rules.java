@@ -1,45 +1,43 @@
+
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
-import javax.swing.JTextArea;
+import java.awt.BorderLayout;
 
 
 public class Rules extends JFrame {
 	static JButton okButton;
-
-	public Rules(){
-		super("Rules");
-		
-		getContentPane().setLayout(null);		
-		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+	
+	public Rules() {
+				
+		getContentPane().setLayout(null);
 		setBounds(0, 0, 400, 500);
 		setLocationRelativeTo(null);
 		
 		okButton = new JButton("OK");
-		okButton.setBounds(133, 393, 125, 45);
+		okButton.setBounds(125, 380, 140, 60);
 		getContentPane().add(okButton);
-		
-		JTextArea txtrArea = new JTextArea();
-		txtrArea.setText("");
-		txtrArea.setBounds(120, 70, 138, 86);
-		getContentPane().add(txtrArea);
-	
-		
-		MyEventHandler commandHandler = new MyEventHandler();
+		myEventHandler commandHandler = new myEventHandler(); 
 		okButton.addActionListener(commandHandler);
 		
 	}
 	
 	
-	private class MyEventHandler implements ActionListener{
+	public class myEventHandler implements ActionListener{
 		
 		public void actionPerformed(ActionEvent myEvent){
-			if (myEvent.getSource() == okButton){
+			if(myEvent.getSource() == okButton){
 				setVisible(false);
 			}
 			
 		}
 	}
+	
+	
+	
+	
+	
 }

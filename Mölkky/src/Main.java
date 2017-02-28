@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 
-public class Game extends JFrame{
+public class Main extends JFrame{
 	
 	static JButton startButton;
 	static JButton editDbButton;
@@ -14,7 +14,7 @@ public class Game extends JFrame{
 	static JButton rulesButton;
 	
 	
-	public Game() {
+	public Main() {
 		super("Mölkky scorer");
 		
 		getContentPane().setLayout(null);		
@@ -82,7 +82,7 @@ public class Game extends JFrame{
 
 	
 	public static void main(String[] args) {
-		Game frame = new Game();
+		Main frame = new Main();
 		frame.setVisible(true);
 		
 		

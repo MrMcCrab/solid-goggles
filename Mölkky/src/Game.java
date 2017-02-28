@@ -1,11 +1,7 @@
+
 import javax.swing.JFrame;
-import java.awt.Button;
-import java.awt.Event;
-import java.awt.Panel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 
@@ -15,13 +11,13 @@ public class Game extends JFrame{
 	static JButton editDbButton;
 	static JButton quitButton;
 	static JLabel labelSay;
+	static JButton rulesButton;
 	
 	
 	public Game() {
 		super("Mölkky scorer");
 		
-		getContentPane().setLayout(null);
-		
+		getContentPane().setLayout(null);		
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setBounds(0, 0, 500, 500);
 		setLocationRelativeTo(null);
@@ -39,17 +35,22 @@ public class Game extends JFrame{
 		getContentPane().add(editDbButton);
 		
 		quitButton = new JButton("Quit");
-		quitButton.setBounds(160, 247, 140, 60);
+		quitButton.setBounds(160, 318, 140, 60);
 		getContentPane().add(quitButton);
 		
+		rulesButton = new JButton("Rules");
+		rulesButton.setBounds(160, 247, 140, 60);
+		getContentPane().add(rulesButton);
+		
 		labelSay = new JLabel();
-		labelSay.setBounds(160, 342, 140, 40);
+		labelSay.setBounds(160, 395, 140, 40);
 		getContentPane().add(labelSay);
 			
 		MyEventHandler commandHandler = new MyEventHandler();
 		startButton.addActionListener(commandHandler);
 		editDbButton.addActionListener(commandHandler);
 		quitButton.addActionListener(commandHandler);
+		rulesButton.addActionListener(commandHandler);
 		
 	}
 	
@@ -64,15 +65,20 @@ public class Game extends JFrame{
 				labelSay.setText("Editing db");
 			}else if(myEvent.getSource() == quitButton){
 				System.exit(ERROR);
+			}else if(myEvent.getSource() == rulesButton){
+				rules();
 			}else{
 				labelSay.setText("Unknown error");
-			}
-			
-		}
-		
-		
+			}			
+		}				
 	}
 	
+	
+	
+	public static void rules(){
+		Rules rule = new Rules();
+		rule.setVisible(true);	
+	}
 
 	
 	public static void main(String[] args) {

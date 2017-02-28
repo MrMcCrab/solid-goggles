@@ -26,6 +26,7 @@ public class Rules extends JFrame {
 		
 	}
 	
+	
 	private class MyEventHandler implements ActionListener{
 		
 		public void actionPerformed(ActionEvent myEvent){

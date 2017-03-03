@@ -53,10 +53,8 @@ public class Main extends JFrame{
 		startButton.addActionListener(commandHandler);
 		editDbButton.addActionListener(commandHandler);
 		quitButton.addActionListener(commandHandler);
-		rulesButton.addActionListener(commandHandler);
-		
+		rulesButton.addActionListener(commandHandler);		
 	}
-	
 	
 	
 	private class MyEventHandler implements ActionListener{

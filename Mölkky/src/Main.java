@@ -61,9 +61,13 @@ public class Main extends JFrame{
 
 		public void actionPerformed(ActionEvent myEvent) {
 			if(myEvent.getSource() == startButton){
-				labelSay.setText("game started");
+				//labelSay.setText("game started");
+				Game game = new Game();
+				game.setVisible(true);
 			}else if (myEvent.getSource() == editDbButton){
-				labelSay.setText("Editing db");
+				//labelSay.setText("Editing db");
+				Database db = new Database();
+				db.connect();
 			}else if(myEvent.getSource() == quitButton){
 				System.exit(ERROR);
 			}else if(myEvent.getSource() == rulesButton){

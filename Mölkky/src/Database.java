@@ -5,20 +5,33 @@ public class Database {
 	public void connect(){
 	
 		Connection conn = null;
-		Statement stmt = null; 
+		Statement createGameTable = null; 
+		Statement createPlayerTable = null;
 		
 		try{
 			Class.forName("org.sqlite.JDBC");
 			conn = DriverManager.getConnection("jdbc:sqlite:test.db");
 			
-			stmt = conn.createStatement();
+			createGameTable = conn.createStatement();
 			String sql = "create table if not exists game " + 
-			"(player	text	not null," +
-			"games		int				," + 
-			"throws		int				," + 
-			"misses		int				," + 
-			"wins		int				)";
-			stmt.executeUpdate(sql);
+			"(game_id			int		not null," +
+			"player_id			int				)";
+			createGameTable.executeUpdate(sql);
+			
+		}catch(Exception e){
+			System.err.println(e.getClass().getName() + ": " + e.getMessage());
+			System.exit(0);
+		}
+		
+		try{
+			Class.forName("org.sqlite.JDBC");
+			conn = DriverManager.getConnection("jdbc:sqlite:test.db");
+			
+			createPlayerTable = conn.createStatement();
+			String sql2 = "create table if not exists players " + 
+			"(player_id		int		not null	autoincrement," + 
+			"player_name	text	not null)";	
+			createPlayerTable.executeUpdate(sql2);
 			
 		}catch(Exception e){
 			System.err.println(e.getClass().getName() + ": " + e.getMessage());

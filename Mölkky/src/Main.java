@@ -25,7 +25,7 @@ public class Main extends JFrame{
 		setBounds(0, 0, 500, 500);
 		setLocationRelativeTo(null);
 		
-		startButton = new JButton("Start game");
+		startButton = new JButton("New game");
 		startButton.setBounds(175, 110, 140, 60);
 		getContentPane().add(startButton);
 		
@@ -61,9 +61,13 @@ public class Main extends JFrame{
 
 		public void actionPerformed(ActionEvent myEvent) {
 			if(myEvent.getSource() == startButton){
-				labelSay.setText("game started");
+				//labelSay.setText("game started");
+				Game game = new Game();
+				game.setVisible(true);
 			}else if (myEvent.getSource() == editDbButton){
-				labelSay.setText("Editing db");
+				//labelSay.setText("Editing db");
+				Query query = new Query();
+				query.connect();
 			}else if(myEvent.getSource() == quitButton){
 				System.exit(ERROR);
 			}else if(myEvent.getSource() == rulesButton){

@@ -18,14 +18,18 @@ public class Main extends JFrame{
 	
 	
 	public Main() {
+		
 		super("Mölkky scorer");
+		
+		Database db = new Database();
+		db.connect();
 		
 		getContentPane().setLayout(null);		
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setBounds(0, 0, 500, 500);
 		setLocationRelativeTo(null);
 		
-		startButton = new JButton("Start game");
+		startButton = new JButton("New game");
 		startButton.setBounds(175, 110, 140, 60);
 		getContentPane().add(startButton);
 		
@@ -33,7 +37,7 @@ public class Main extends JFrame{
 		welcomeLabel.setBounds(207, 42, 140, 60);
 		getContentPane().add(welcomeLabel);
 		
-		editDbButton = new JButton("Edit database");
+		editDbButton = new JButton("Show database");
 		editDbButton.setBounds(175, 180, 140, 60);
 		getContentPane().add(editDbButton);
 		
@@ -57,6 +61,7 @@ public class Main extends JFrame{
 	}
 	
 	
+	//Action listener for main window buttons
 	private class MyEventHandler implements ActionListener{
 
 		public void actionPerformed(ActionEvent myEvent) {
@@ -64,8 +69,7 @@ public class Main extends JFrame{
 				Game game = new Game();
 				game.setVisible(true);
 			}else if (myEvent.getSource() == editDbButton){
-				Database db = new Database();
-				db.connect();
+				
 			}else if(myEvent.getSource() == quitButton){
 				System.exit(ERROR);
 			}else if(myEvent.getSource() == rulesButton){
@@ -77,13 +81,13 @@ public class Main extends JFrame{
 	}
 	
 	
-	
+	//Show rules window
 	public static void rules(){
 		Rules rule = new Rules();
 		rule.setVisible(true);	
 	}
 
-	
+	//Set main window visible
 	public static void main(String[] args) {
 		Main frame = new Main();
 		frame.setVisible(true);

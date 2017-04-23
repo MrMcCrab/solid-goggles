@@ -1,48 +1,16 @@
-
-import javax.swing.JFrame;
-<<<<<<< HEAD
-import javax.swing.JLabel;
+		
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JTable;
-
-public class Game extends JFrame {
-	
-	static JButton btnAddPlayer;
-	static JButton btnStartGame;
-	static JTable tablePlayer;
-	final static int MAX_QTY = 4;
-	
-	private Query query;
-	
-	public Game(){
-		
-		super("Mölkky scorer");
-		
-		getContentPane().setLayout(null);				
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setBounds(0, 0, 500, 500);
-		setLocationRelativeTo(null);
-=======
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-
-import com.sun.corba.se.impl.activation.CommandHandler;
-
 import java.awt.Label;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.TextArea;
 import java.util.ArrayList;
 
-import javax.swing.JButton;
-import javax.swing.JTable;
-import java.awt.TextArea;
 
 public class Game extends JFrame {
 	
@@ -56,6 +24,13 @@ public class Game extends JFrame {
 	static TextArea playerList;
 	
 	public Game(){
+		
+		super("Mölkky scorer");
+		
+		getContentPane().setLayout(null);		
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setBounds(0, 0, 500, 500);
+		setLocationRelativeTo(null);
 		
 		getContentPane().setLayout(null);		
 		
@@ -79,7 +54,6 @@ public class Game extends JFrame {
 		MyEventHandler commandHandler = new MyEventHandler();
 		addPlayer.addActionListener(commandHandler);
 		startGame.addActionListener(commandHandler);
->>>>>>> origin/master
 		
 		btnAddPlayer = new JButton("Add player");
 		btnAddPlayer.setBounds(50, 390, 140, 60);
@@ -98,7 +72,6 @@ public class Game extends JFrame {
 		btnStartGame.addActionListener(commandHandler);
 	}
 	
-<<<<<<< HEAD
 	private class MyEventHandler implements ActionListener{
 
 		public void actionPerformed(ActionEvent myEvent) {
@@ -125,7 +98,7 @@ public class Game extends JFrame {
 		
 		
 	}
-=======
+
 	public void addPlayer(String playerName){
 		
 		t_players[numPlayers] = playerName;
@@ -169,5 +142,4 @@ public class Game extends JFrame {
 		
 	}
 		
->>>>>>> origin/master
 }

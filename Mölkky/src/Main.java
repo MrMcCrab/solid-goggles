@@ -61,7 +61,6 @@ public class Main extends JFrame{
 
 		public void actionPerformed(ActionEvent myEvent) {
 			if(myEvent.getSource() == startButton){
-<<<<<<< HEAD
 				//labelSay.setText("game started");
 				Game game = new Game();
 				game.setVisible(true);
@@ -69,13 +68,11 @@ public class Main extends JFrame{
 				//labelSay.setText("Editing db");
 				Query query = new Query();
 				query.connect();
-=======
 				Game game = new Game();
 				game.setVisible(true);
 			}else if (myEvent.getSource() == editDbButton){
 				Database db = new Database();
 				db.connect();
->>>>>>> origin/master
 			}else if(myEvent.getSource() == quitButton){
 				System.exit(ERROR);
 			}else if(myEvent.getSource() == rulesButton){

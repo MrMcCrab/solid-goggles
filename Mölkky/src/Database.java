@@ -15,7 +15,7 @@ public class Database {
 			createGameTable = conn.createStatement();
 			String sql = "create table if not exists game " + 
 			"(game_id			int		not null," +
-			"player_id			int				)";
+			"player_id			int		not null)";
 			createGameTable.executeUpdate(sql);
 			
 		}catch(Exception e){
@@ -29,8 +29,10 @@ public class Database {
 			
 			createPlayerTable = conn.createStatement();
 			String sql2 = "create table if not exists players " + 
-			"(player_id		int		not null	autoincrement," + 
-			"player_name	text	not null)";	
+			"(player_id		int		not null," + 
+			"player_name	text	not null," +
+			"throws			int				," +
+			"misses			int				)";	
 			createPlayerTable.executeUpdate(sql2);
 			
 		}catch(Exception e){

@@ -23,6 +23,8 @@ public class Game extends JFrame {
 	static JButton addPlayer; 
 	static JButton startGame;
 	static JButton rules;
+	static JButton btnMenu;
+	
 	static TextArea playerList;
 	
 	public Game(){
@@ -46,6 +48,10 @@ public class Game extends JFrame {
 		rules.setBounds(334, 378, 140, 60);
 		getContentPane().add(rules);
 		
+		btnMenu = new JButton("Menu");
+		btnMenu.setBounds(187, 328, 110, 39);
+		getContentPane().add(btnMenu);
+		
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setBounds(0, 0, 500, 500);
 		setLocationRelativeTo(null);
@@ -54,6 +60,7 @@ public class Game extends JFrame {
 		addPlayer.addActionListener(commandHandler);
 		startGame.addActionListener(commandHandler);
 		rules.addActionListener(commandHandler);
+		btnMenu.addActionListener(commandHandler);
 		
 	}
 	
@@ -93,7 +100,7 @@ public class Game extends JFrame {
 				rules.setVisible(true);
 			}
 			//Starts new game, create player array from temp player array, create player points array
-			if(myEvent.getSource() == startGame){
+			if(myEvent.getSource() == startGame && numPlayers >= 2){
 				
 				playerArray = new String[numPlayers];
 				pointsArray = new int[numPlayers];
@@ -104,6 +111,8 @@ public class Game extends JFrame {
 				gameLogic(playerArray, pointsArray);
 				
 				
+			}else if(myEvent.getSource() == startGame && numPlayers < 2){
+				JOptionPane.showConfirmDialog(null, "At least two players are needed", "Error", JOptionPane.OK_OPTION);
 			}
 				
 		}
@@ -112,8 +121,9 @@ public class Game extends JFrame {
 	
 	public void gameLogic(String[] playerArray, int[] pointsArray){
 		
-		int playerNumber;
 		
+		int playerNumber;
+		Database db = new Database();
 		playerList.setText("game started \n");
 		addPlayer.setEnabled(false);
 		playerNumber = 0;
@@ -140,6 +150,7 @@ public class Game extends JFrame {
 				}
 				if(pointsArray[playerNumber] == 50){
 					playerList.setText("Player " + playerArray[playerNumber] + " has won the game!");
+					db.addWinner(playerArray[playerNumber]);
 					break;
 				}
 				playerNumber++;
@@ -147,8 +158,6 @@ public class Game extends JFrame {
 			
 			
 		}while(true);
-		
-		
-		
+				
 	}
 }

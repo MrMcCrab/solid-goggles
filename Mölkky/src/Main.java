@@ -11,7 +11,7 @@ import javax.swing.JInternalFrame;
 public class Main extends JFrame{
 	
 	static JButton startButton;
-	static JButton editDbButton;
+	static JButton results;
 	static JButton quitButton;
 	static JLabel labelSay;
 	static JButton rulesButton;
@@ -37,9 +37,9 @@ public class Main extends JFrame{
 		welcomeLabel.setBounds(207, 42, 140, 60);
 		getContentPane().add(welcomeLabel);
 		
-		editDbButton = new JButton("Show database");
-		editDbButton.setBounds(175, 180, 140, 60);
-		getContentPane().add(editDbButton);
+		results = new JButton("Results");
+		results.setBounds(175, 180, 140, 60);
+		getContentPane().add(results);
 		
 		quitButton = new JButton("Quit");
 		quitButton.setBounds(175, 320, 140, 60);
@@ -55,7 +55,7 @@ public class Main extends JFrame{
 			
 		MyEventHandler commandHandler = new MyEventHandler();
 		startButton.addActionListener(commandHandler);
-		editDbButton.addActionListener(commandHandler);
+		results.addActionListener(commandHandler);
 		quitButton.addActionListener(commandHandler);
 		rulesButton.addActionListener(commandHandler);		
 	}
@@ -68,8 +68,10 @@ public class Main extends JFrame{
 			if(myEvent.getSource() == startButton){
 				Game game = new Game();
 				game.setVisible(true);
-			}else if (myEvent.getSource() == editDbButton){
-				
+			}else if (myEvent.getSource() == results){
+				Database db = new Database();
+				db.setVisible(true);
+				db.printScores();
 			}else if(myEvent.getSource() == quitButton){
 				System.exit(ERROR);
 			}else if(myEvent.getSource() == rulesButton){
